@@ -1,13 +1,7 @@
-#if os(Linux)
-
 import XCTest
-@testable import Antlr4Tests
 
-XCTMain([
-    // Antlr4Tests
-    testCase(TokenStreamTests.allTests),
-    testCase(TokenStreamRewriterTests.allTests),
-    testCase(VisitorTests.allTests)
-])
+import Antlr4Tests
 
-#endif
+var tests = [XCTestCaseEntry]()
+tests += Antlr4Tests.allTests()
+XCTMain(tests)
