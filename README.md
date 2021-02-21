@@ -10,24 +10,21 @@ https://stackoverflow.com/questions/29306032/fork-subdirectory-of-repo-as-a-diff
 
 * Clone the repo
 <pre>
-    git clone https://github.com/hexdreamer/antlr4.git
+$ git clone https://github.com/hexdreamer/antlr4.git
 </pre>
 * Create a branch using the git subtree command for the folder only
-
-
-    git subtree split --prefix=runtime/Swift -b antlr4-swift-package
-    
+<pre>
+$ git subtree split --prefix=runtime/Swift -b antlr4-swift-package
+</pre>
 * Create a new github repo at https://github.com/hexdreamer/antlr4-swift-package.git
-
 * Add this new repo as a remote
-
-
-    git remote add upstream-antlr4-swift-package https://github.com/hexdreamer/antlr4-swift-package.git
-    
+<pre>
+$ git remote add upstream-antlr4-swift-package https://github.com/hexdreamer/antlr4-swift-package.git
+</pre>
 * Push the subtree
-
-
-    git push upstream-antlr4-swift-package antlr4-swift-package
+<pre>
+$ git push upstream-antlr4-swift-package antlr4-swift-package
+</pre>
 
 ## Updating This Project From The Main Repository
 ### Sync our fork of Antlr4 from the upstream main repo
