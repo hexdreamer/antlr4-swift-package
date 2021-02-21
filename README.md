@@ -9,10 +9,9 @@ StackOverflow to the rescue:
 https://stackoverflow.com/questions/29306032/fork-subdirectory-of-repo-as-a-different-repo-in-github
 
 * Clone the repo
-
-
+<pre>
     git clone https://github.com/hexdreamer/antlr4.git
-    
+</pre>
 * Create a branch using the git subtree command for the folder only
 
 
