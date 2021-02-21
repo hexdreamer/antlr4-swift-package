@@ -30,6 +30,44 @@ https://stackoverflow.com/questions/29306032/fork-subdirectory-of-repo-as-a-diff
 
     git push upstream-antlr4-swift-package antlr4-swift-package
 
+## Updating This Project From The Main Repository
+### Sync our fork of Antlr4 from the upstream main repo
+* check out fresh version of hexdreamer/antlr4
+
+
+    git clone git@github.com:hexdreamer/antlr4.git
+    
+* sync with upstream:
+    * https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/configuring-a-remote-for-a-fork
+    * https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork
+
+
+    cd antlr4
+    git remote add upstream https://github.com/antlr/antlr4
+    git fetch upstream
+    git merge upstream/main
+
+* perform a new split on the repo
+
+
+    git subtree split --prefix=runtime/Swift -b antlr4-swift-package
+
+
+## Sync this repo with the upstream we just created
+* check out the existing anltr4-swift-package
+
+
+    cd ..
+    git clone git@github.com:hexdreamer/antlr4-swift-package.git
+
+* do a similar upstream merge with antlr4-swift-package
+
+
+    cd antlr4-swift-package
+    git remote add upstream ../antlr4
+    git fetch upstream
+    git merge upstream/antlr4-swift-package
+
 ## Build Notes
 
 In order to build the tests, you need to mvn install the code from the main repo. The full suite of tests aren't working for me, and end up filling my disk, so I skip them. You also need to have JAVA_HOME defined, which is now in a weird place on the latest macOS. Your location may vary.
