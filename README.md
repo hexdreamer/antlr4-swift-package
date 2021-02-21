@@ -12,15 +12,18 @@ https://stackoverflow.com/questions/29306032/fork-subdirectory-of-repo-as-a-diff
 <pre>
 $ git clone https://github.com/hexdreamer/antlr4.git
 </pre>
+
 * Create a branch using the git subtree command for the folder only
 <pre>
 $ git subtree split --prefix=runtime/Swift -b antlr4-swift-package
 </pre>
+
 * Create a new github repo at https://github.com/hexdreamer/antlr4-swift-package.git
 * Add this new repo as a remote
 <pre>
 $ git remote add upstream-antlr4-swift-package https://github.com/hexdreamer/antlr4-swift-package.git
 </pre>
+
 * Push the subtree
 <pre>
 $ git push upstream-antlr4-swift-package antlr4-swift-package
@@ -29,40 +32,39 @@ $ git push upstream-antlr4-swift-package antlr4-swift-package
 ## Updating This Project From The Main Repository
 ### Sync our fork of Antlr4 from the upstream main repo
 * check out fresh version of hexdreamer/antlr4
+<pre>
+$ git clone git@github.com:hexdreamer/antlr4.git
+</pre>
 
-
-    git clone git@github.com:hexdreamer/antlr4.git
-    
 * sync with upstream:
     * https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/configuring-a-remote-for-a-fork
     * https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork
-
-
-    cd antlr4
-    git remote add upstream https://github.com/antlr/antlr4
-    git fetch upstream
-    git merge upstream/main
+<pre>
+$ cd antlr4
+$ git remote add upstream https://github.com/antlr/antlr4
+$ git fetch upstream
+$ git merge upstream/main
+</pre>
 
 * perform a new split on the repo
-
-
-    git subtree split --prefix=runtime/Swift -b antlr4-swift-package
-
+<pre>
+$ git subtree split --prefix=runtime/Swift -b antlr4-swift-package
+</pre>
 
 ## Sync this repo with the upstream we just created
 * check out the existing anltr4-swift-package
-
-
-    cd ..
-    git clone git@github.com:hexdreamer/antlr4-swift-package.git
+<pre>
+$ cd ..
+$ git clone git@github.com:hexdreamer/antlr4-swift-package.git
+</pre>
 
 * do a similar upstream merge with antlr4-swift-package
-
-
-    cd antlr4-swift-package
-    git remote add upstream ../antlr4
-    git fetch upstream
-    git merge upstream/antlr4-swift-package
+<pre>
+$ cd antlr4-swift-package
+$ git remote add upstream ../antlr4
+$ git fetch upstream
+$ git merge upstream/antlr4-swift-package
+</pre>
 
 ## Build Notes
 
